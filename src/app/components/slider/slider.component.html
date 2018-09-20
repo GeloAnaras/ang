@@ -1,0 +1,27 @@
+<div class="master">
+  <div class="slider" *ngIf="data" (mouseenter)="focus = true" (mouseleave)="focus = false">
+    <div class="container">
+      <div class="mover" >
+        <div class="slide" *ngFor="let slide of slides" [style.background-image]="slide"></div>
+      </div>
+    </div>
+    <div class="nav">
+      <div class="arrow arrow-left" (click)="slideLeft()"></div>
+
+      <ng-container *ngIf="data[0] === 'dotted'">
+        <div class="dots" *ngFor="let dot of slides;let i = index"
+             (click)="slideTo(i)" [class.active]="i === activeSlide"></div>
+      </ng-container>
+
+      <ng-container *ngIf="data[0] === 'icons'">
+        <div class="dots" *ngFor="let dot of slides;let i = index"
+             (click)="slideTo(i)" [class.active]="i === activeSlide"
+             [style.background-image]="dot"
+        ></div>
+      </ng-container>
+
+      <div class="arrow arrow-right" (click)="slideRight()"></div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,58 @@
+.master{
+  padding: 20px;
+}
+.slider{
+  width: 100%;
+  padding: 0 20px;
+  height: 350px;
+  position: relative;
+  margin: 0 auto;
+}
+.container{
+  height: 100%;
+  overflow: hidden;
+}
+.mover{
+  width: 200%;
+  height: 100%;
+  background: rgba(22, 43, 100, 0.5);
+  font-size: 0;
+}
+.slide{
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  font-size: 150px;
+  text-align: center;
+  border: 4px solid #800e06;
+  line-height: 350px;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.main-page .master .slider{
+  padding: 30px;
+}
+.nav{
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #45acc8;
+}
+.active{
+  background-color: #3f719b;
+}
+.nav *{
+  cursor: pointer;
+}
+.dots{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+}
+.dots.active{
+  background-color: black;
+}

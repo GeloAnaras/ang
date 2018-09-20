@@ -1,0 +1,53 @@
+<div class="container">
+  <span class="cat-title">Редактирование пользователя</span>
+  <form action="#" (submit)="onSubmit()" class="addForm">
+
+    <label class="label" for="surname_register">Фамилия</label>
+    <input type="text" name="surname" id="surname_register" [(ngModel)]="addForm.surname">
+    <p class="error" *ngIf="errors">{{ errors.surname}}</p>
+
+    <label class="label" for="name_register">Имя</label>
+    <input type="text" name="name" id="name_register" [(ngModel)]="addForm.name">
+    <p class="error" *ngIf="errors">{{ errors.name}}</p>
+
+    <label class="label" for="secondname_register">Отчество</label>
+    <input type="text" name="secondname" id="secondname_register" [(ngModel)]="addForm.secondname">
+    <p class="error" *ngIf="errors">{{ errors.secondname}}</p>
+
+    <label class="label" for="phone_register">Телефон</label>
+    <input type="text" name="phone" id="phone_register" [(ngModel)]="addForm.phone">
+    <p class="error" *ngIf="errors">{{ errors.phone}}</p>
+
+    <label class="label" for="email_register">Электронная почта</label>
+    <input type="email" name="email" id="email_register" [(ngModel)]="addForm.email">
+    <p class="error" *ngIf="errors">{{ errors.email}}</p>
+
+    <label class="label" for="password">Новый пароль</label>
+    <input type="password" name="newPassword" id="password" [(ngModel)]="addForm.newPassword">
+    <p class="error" *ngIf="errors">{{ errors.password}}</p>
+
+    <label class="label" for="password_confirmation_register">Повторите пароль</label>
+    <input type="password" name="password_confirmation" id="password_confirmation_register"
+           [(ngModel)]="password_confirmation">
+    <p class="error" *ngIf="errors">{{ errors.password_confirmation}}</p>
+
+    <label class="label" for="role">Роль</label>
+    <select name="role" id="role" [(ngModel)]="addForm.role">
+      <ng-container *ngIf="rolesArray">
+        <option *ngFor="let role of rolesArray" value="{{role.id}}">{{role.name}}</option>
+      </ng-container>
+    </select>
+
+    <div class="submit">
+      <input type="submit" value="Обновить" class="btn">
+      <button class="btn" (click)="onClose()">Отмена</button>
+      <app-preloader *ngIf="!request"></app-preloader>
+    </div>
+
+  </form>
+
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+
+</div>

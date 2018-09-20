@@ -1,0 +1,9 @@
+<div class="container" *ngIf="category">
+  <h1>{{category.name}}</h1>
+  <div class="content" *ngIf="category.children">
+    <div *ngFor="let child of category.children" class="block">
+      <div class="img" [style.background-image]="makeUrl(child.image)"></div>
+      <a href="#" [routerLink]="['/category',child.id]">{{child.name}}</a>
+    </div>
+  </div>
+</div>

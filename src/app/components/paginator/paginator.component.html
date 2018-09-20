@@ -1,0 +1,52 @@
+<ng-container *ngIf="!filters">
+  <ul *ngIf="data.last !== 1">
+    <a *ngIf="data.previous" href="#"
+       [routerLink]="[{order:data.order,direction: data.direction,page: data.previous}]"><li>
+      <
+    </li></a>
+    <a *ngIf="data.current > 1" href="#"
+       [routerLink]="[{order:data.order,direction: data.direction,page: 1}]"><li>
+      1
+    </li></a>
+    <li *ngIf="data.current - 1 > 1" class="dots">...</li>
+    <a class="curr" ><li>
+      {{data.current}}
+    </li></a>
+    <li *ngIf="data.last - data.current > 1" class="dots">...</li>
+    <a *ngIf="data.last > data.current" href="#"
+       [routerLink]="[{order:data.order,direction: data.direction,page: data.last}]"><li>
+      {{data.last}}
+    </li></a>
+    <a *ngIf="data.next" href="#"
+       [routerLink]="[{order:data.order,direction: data.direction,page: data.next}]"><li>
+      >
+    </li></a>
+  </ul>
+</ng-container>
+
+<ng-container *ngIf="filters">
+  <ul *ngIf="data.last !== 1">
+    <a *ngIf="data.previous" href="#"
+       [routerLink]="[previousData]"><li>
+      <
+    </li></a>
+    <a *ngIf="data.current > 1" href="#"
+       [routerLink]="[firstData]"><li>
+      1
+    </li></a>
+    <li *ngIf="data.current - 1 > 1" class="dots">...</li>
+    <a class="curr"><li>
+      {{data.current}}
+    </li></a>
+    <li *ngIf="data.last - data.current > 1" class="dots">...</li>
+    <a *ngIf="data.last > data.current" href="#"
+       [routerLink]="[lastData]"><li>
+      {{data.last}}
+    </li></a>
+    <a *ngIf="data.next" href="#"
+       [routerLink]="[nextData]"><li>
+      >
+    </li></a>
+  </ul>
+</ng-container>
+

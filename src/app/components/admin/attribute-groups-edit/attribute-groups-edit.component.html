@@ -1,0 +1,21 @@
+<div class="container">
+  <span class="cat-title">Редактирование группы аттрибутов</span>
+  <form action="#" (submit)="onSubmit()" class="addForm">
+
+    <label for="name" class="label">Имя:</label>
+    <input type="text" name="name" id="name" [(ngModel)]="addForm.name"  #name="ngModel" required>
+    <p class="error" *ngIf="errors">{{errors.name}}</p>
+
+    <input type="hidden" name="id" [(ngModel)]="addForm.id">
+    <div class="submit">
+      <input type="submit" value="Обновить" class="btn">
+      <button class="btn" (click)="onClose()">Отмена</button>
+      <app-preloader *ngIf="!request"></app-preloader>
+    </div>
+
+  </form>
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+</div>
+

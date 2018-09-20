@@ -1,0 +1,67 @@
+<main >
+  <div class="header">
+    <div class="block">
+    <div class="menu" (mouseenter)="menu = true">
+      <p class="first"><span><div></div><div></div><div></div></span>Каталог товаров</p>
+      <ul class="sub-menu">
+        <ng-container *ngIf="categoriesArray">
+          <ng-container *ngFor="let menu1 of categoriesArray">
+            <li *ngIf="menu1.parent_category === 0">
+              <a *ngIf="menu1.children.length > 0" href="#" [routerLink]="['/category',menu1.id]">{{menu1.name}}</a>
+              <a *ngIf="menu1.children.length <= 0" href="#" [routerLink]="['/goods',menu1.name]">{{menu1.name}}</a>
+              <ul *ngIf="menu1.children.length > 0" class="menu2">
+                <ng-container *ngFor="let menu2 of categoriesArray">
+                  <li  *ngIf="menu2.parent_category === menu1.id">
+                    <a *ngIf="menu2.children.length > 0" href="#" [routerLink]="['/category',menu2.id]">{{menu2.name}}</a>
+                    <a *ngIf="menu2.children.length <= 0" href="#" [routerLink]="['/goods',menu2.name]">{{menu2.name}}</a>
+                    <ul *ngIf="menu2.children.length > 0" class="menu3">
+                      <ng-container *ngFor="let menu3 of categoriesArray">
+                        <li  *ngIf="menu3.parent_category === menu2.id">
+                          <a *ngIf="menu3.children.length > 0" href="#" [routerLink]="['/category',menu3.id]">{{menu3.name}}</a>
+                          <a *ngIf="menu3.children.length <= 0" href="#" [routerLink]="['/goods',menu3.name]">{{menu3.name}}</a>
+                          <ul *ngIf="menu3.children.length > 0" class="menu4">
+                            <ng-container *ngFor="let menu4 of categoriesArray">
+                              <li  *ngIf="menu4.parent_category === menu3.id">
+                                <a *ngIf="menu4.children.length > 0" href="#" [routerLink]="['/category',menu4.id]">{{menu4.name}}</a>
+                                <a *ngIf="menu4.children.length <= 0" href="#" [routerLink]="['/goods',menu4.name]">{{menu4.name}}</a>
+                                <ul *ngIf="menu4.children.length > 0" class="menu5">
+                                  <ng-container *ngFor="let menu5 of categoriesArray">
+                                    <li  *ngIf="menu5.parent_category === menu4.id">
+                                      <a *ngIf="menu5.children.length > 0" href="#" [routerLink]="['/category',menu5.id]">{{menu5.name}}</a>
+                                      <a *ngIf="menu5.children.length <= 0" href="#" [routerLink]="['/goods',menu5.name]">{{menu5.name}}</a>
+
+                                    </li>
+                                  </ng-container>
+                                </ul>
+                              </li>
+                            </ng-container>
+                          </ul>
+                        </li>
+                      </ng-container>
+                    </ul>
+                  </li>
+                </ng-container>
+              </ul>
+            </li>
+          </ng-container>
+
+        </ng-container>
+      </ul>
+    </div>
+    <div class="search">
+      <app-search></app-search>
+    </div>
+    <div class="compare">
+      <button class="m-btn" >Сравнение</button>
+    </div>
+    <div class="basket">
+      <!--<button class="m-btn" (click)="basketOpen = true">Корзина</button>-->
+      <app-basket-icon (click)="basketOpen = true"></app-basket-icon>
+    </div>
+    </div>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <app-basket (close)="basketOpen = false" *ngIf="basketOpen"></app-basket>
+</main>

@@ -1,0 +1,8 @@
+.up
+{
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  padding: 20px;
+  display: none;
+}

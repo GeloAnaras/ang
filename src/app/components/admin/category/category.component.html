@@ -1,0 +1,48 @@
+
+<div class="container">
+  <div class="product" *ngIf="!addMode && !editMode">
+    <div class="title">
+      <button class="btn" (click)="addMode ? addMode = false : addMode = true">Добавить</button>
+      <span class="cat-title">Категории</span>
+      <app-preloader class="prod-preloader" *ngIf="!request"></app-preloader>
+    </div>
+
+    <table border="1px solid black">
+      <tr>
+        <th *ngFor="let order of colums">
+          <a href="#" class="th-order"
+             [routerLink]="[{order: order.name,
+             direction: params.direction === 'ASC' ? 'DESC' : 'ASC',
+             page: params.page}]" >{{order.value}}
+            <ng-container *ngIf="params.order === order.name">
+              <span *ngIf="params.direction === 'ASC'">▲</span>
+              <span *ngIf="params.direction === 'DESC'">▼</span>
+            </ng-container>
+          </a>
+        </th>
+        <th>действие</th>
+      </tr>
+      <ng-container *ngFor="let prod of categoriesArray">
+        <tr>
+          <td>{{prod.id}}</td>
+          <td>{{prod.name}}</td>
+          <td *ngIf="!prod.parent_category">Самостоятельная</td>
+          <td *ngIf="prod.parent">{{prod.parent.name}}</td>
+          <td class="td-buttons">
+            <button class="btn" (click)="editMode ? editMode = false : editMode = prod.id">E</button>
+            <button class="btn" (click)="onDelete(prod.id)">X</button>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+
+    <app-paginator class="prod-paginator" *ngIf="paginationData" [data]="paginationData"></app-paginator>
+  </div>
+
+  <app-category-add *ngIf="addMode"  (adding)="updateCategories();addMode = false"></app-category-add>
+  <app-category-edit *ngIf="editMode" [prodId]="editMode"  (editing)="updateCategories();editMode = false"></app-category-edit>
+
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+</div>

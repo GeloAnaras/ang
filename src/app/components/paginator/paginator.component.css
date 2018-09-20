@@ -1,0 +1,25 @@
+ul{
+  display: flex;
+  margin: 20px auto;
+  font-weight: bolder;
+  font-size: 1.4em;
+
+  max-width: 260px;
+}
+a{
+  font-family: 'Montserrat', sans-serif;
+
+  padding: 0 10px;
+}
+a:not(:last-child){
+  margin-right: 10px;
+}
+.dots{
+  vertical-align: bottom;
+  margin-right: 10px;
+}
+.curr{
+  background: black;
+  color: white;
+  border-radius: 50%;
+}

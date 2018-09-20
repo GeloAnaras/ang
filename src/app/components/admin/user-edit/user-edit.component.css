@@ -1,0 +1,29 @@
+
+label{
+  display: block;
+}
+.attr{
+  display: flex;
+  justify-content: space-between;
+}
+.images{
+  display: flex;
+  justify-content: space-between;
+}
+.submit{
+  margin-top: 20px;
+}
+
+.image_cont{
+  width: 200px;
+  height: 100px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+input{
+  margin-bottom: 20px;
+}
+.submit > *{
+  vertical-align: top;
+}

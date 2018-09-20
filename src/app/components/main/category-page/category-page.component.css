@@ -1,0 +1,29 @@
+.container{
+  width: 100%;
+  padding-top: 20px;
+}
+h1{
+  word-break: break-all;
+  margin-bottom: 20px;
+}
+.content
+{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.block{
+  margin-right: 10px;
+  width: 24%;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5em;
+}
+.img{
+  height: 200px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

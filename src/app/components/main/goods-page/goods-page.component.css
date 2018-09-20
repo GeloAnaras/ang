@@ -1,0 +1,151 @@
+.container
+{
+  width: 100%;
+  display: flex;
+}
+.filters
+{
+  width: 25%;
+}
+.products
+{
+  width: 75%;
+}
+.header
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.list
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  border-top: 1px solid black;
+  align-items: end;
+}
+.block{
+  word-break: break-all;
+  font-size: 16px;
+  width: 30%;
+  height: 100%;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+
+}
+
+.activity, .interaction{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.raiting, .comments{
+  width: 40%;
+  height: 20px;
+  background-color: #d4db65;
+}
+.img{
+  width: 100%;
+  height: 250px;
+  background: url("../../../../assets/mainSlides/2.jpg") no-repeat center;
+  background-size: cover;
+}
+.price span{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+}
+.interaction button{
+  padding: 10px;
+}
+
+.card > *:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.title{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  color: black;
+}
+
+.amountHigh
+{
+  color: green;
+}
+.amountLow
+{
+  color: red;
+}
+.amountNo
+{
+  color: gray;
+}
+.attr
+{
+  width: 100%;
+  background-color: #f5f5f5;
+}
+.priceInputs
+{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.priceInputs input
+{
+  width: 38%;
+  padding: 5px;
+}
+.priceInputs span
+{
+ font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+.priceInputs span:hover
+{
+  color: red;
+}
+.priceRanges
+{
+  margin-top: 10px;
+}
+.priceRanges div:last-child
+{
+  text-align: right;
+}
+.priceRanges input
+{
+  width: 71%;
+}
+.priceRanges span
+{
+  font-family: 'Montserrat', sans-serif;
+}
+.span
+{
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+.span ul{
+  margin-top: 10px;
+}
+
+.span ul li:not(:last-child){
+  margin-bottom: 5px;
+}
+.attrButtons
+{
+  display: flex;
+  justify-content: space-around;
+  background-color: #45acc8;
+  padding: 10px 0;
+}
+.attrButtons a{
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}

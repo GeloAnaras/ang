@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+*, html, body
+{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+.btn{
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+.cat-title{
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.label{
+  color: #3013f8;
+  font-weight: bold;
+}
+.deleteSpan{
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 5px;
+  border: 2px solid red;
+}
+.deleteSpan:hover{
+  border: 2px solid black;
+  color: red;
+  cursor: pointer;
+}
+.error{
+  color: red;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+.nav a{
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+th{
+  cursor: pointer;
+}
+.priArrow{
+  width: 20px;
+  height: 20px;
+  background: #45acc8;
+}
+.prod-preloader{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+.m-btn{
+  padding: 5px 10px;
+}
+.th-order
+{
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  padding: 10px 0;
+}

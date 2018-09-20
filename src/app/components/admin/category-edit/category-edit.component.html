@@ -1,0 +1,56 @@
+<div class="container">
+  <p class="cat-title">Редактирование категории</p>
+  <form action="#" (submit)="onSubmit()" class="addForm">
+
+    <label for="name" class="label">Имя:</label>
+    <input type="text" name="name" id="name" [(ngModel)]="addForm.name" required >
+
+    <select name="parent_category" [(ngModel)]="addForm.parent_category">
+      <option value="0">Самостоятельная категория</option>
+      <ng-container *ngFor="let cat of categoriesArray; let i = index">
+        <option value="{{cat.id}}">{{cat.name}}</option>
+      </ng-container>
+    </select>
+    <p class="error" *ngIf="errors">{{errors.name}}</p>
+
+    <div class="images">
+      <div class="image_basic">
+        <label for="image_basic" class="label">Базовое изображение:</label>
+        <input type="file" name="image_basic" id="image_basic" (change)="imageBasicChange($event)" required>
+        <div *ngIf="url" class="image_cont" [style.background-image]="url"></div>
+      </div>
+    </div>
+    <p class="error" *ngIf="errors">{{errors.image}}</p>
+
+    <div class="attr">
+      <ul class="oldAttr" *ngIf="categoryAttributes && categoryAttributes.length > 0">
+        <ng-container *ngFor="let attr of categoryAttributes">
+          <li class="attrspan" >{{attr.name}}
+            <span (click)="oldIndex(attr.id)" class="deleteSpan">X</span>
+          </li>
+        </ng-container>
+      </ul>
+
+      <ng-container name="attrs" *ngIf="attributesArray && attributesArray.length > 0">
+        <select name="newattrs" multiple class="newAttrs">
+          <ng-container *ngFor="let attr of attributesArray">
+            <option value="{{attr.id}}">{{attr.name}}</option>
+          </ng-container>
+        </select>
+      </ng-container>
+
+    </div>
+
+    <div class="submit">
+      <input type="submit" value="Обновить" class="btn">
+      <button  class="btn" (click)="onClose()">Отмена</button>
+      <app-preloader *ngIf="!request"></app-preloader>
+    </div>
+
+
+  </form>
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+
+</div>

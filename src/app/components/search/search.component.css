@@ -1,0 +1,12 @@
+.container{
+  background-color: #45acc8;
+  padding: 5px 20px;
+}
+input{
+  padding: 4px;
+}
+form input:first-child{
+  width: 80%;
+}form input:last-child{
+  width: 20%;
+ }

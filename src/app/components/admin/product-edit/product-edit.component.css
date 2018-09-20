@@ -1,0 +1,43 @@
+.container{
+  font-family: 'open_sansregular';
+}
+label{
+  display: block;
+}
+.attr{
+  display: flex;
+  justify-content: space-between;
+}
+.images{
+  display: flex;
+  justify-content: space-between;
+}
+.submit{
+  margin-top: 20px;
+}
+.image_cont{
+  width: 200px;
+  height: 100px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+input{
+  margin-bottom: 20px;
+}
+
+fieldset{
+  border: none;
+}
+.attr{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.span{
+  width: 25%;
+  font-family: 'Montserrat', sans-serif;
+}
+.submit > *{
+  vertical-align: top;
+}

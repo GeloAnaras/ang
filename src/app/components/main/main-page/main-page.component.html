@@ -1,0 +1,34 @@
+<div class="container">
+  <app-menu></app-menu>
+    <app-slider [data]="dataArray"></app-slider>
+  <div class="paralax">Сдесь паралакс</div>
+  <p class="new">Последние поступления</p>
+  <div class="content" >
+
+    <div class="slider" *ngIf="newest">
+      <div class="arrow arrow-left" (click)="slideLeft()"></div>
+      <div class="arrow arrow-right" (click)="slideRight()"></div>
+      <div class="container">
+        <div class="mover-new">
+
+          <div class="slide" *ngFor="let slide of newest">
+            <div class="card">
+              <a href="#" [routerLink]="['product',slide.id]" class="title">{{slide.category.name + " " + slide.name}}</a>
+              <div class="activity">
+                <div class="raiting"></div>
+                <div class="comments"></div>
+              </div>
+              <div class="img" [style.background-image]="makeUrl(slide.image)"></div>
+              <div class="interaction">
+                <span class="price"><span>{{slide.price}}</span> грн</span>
+                <button>C</button>
+                <button (click)="test(slide)">B</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

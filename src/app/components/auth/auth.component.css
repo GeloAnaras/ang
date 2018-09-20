@@ -1,0 +1,27 @@
+label, input{
+  display: block;
+}
+.container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(117, 128, 118, 0.6);
+  z-index: 100;
+}
+.form{
+  width: 400px;
+  background: #d4db65;
+  margin: 50px auto;
+  padding: 20px;
+
+}
+.container p{
+  background: red;
+  color: white;
+}
+.nav{
+  display: flex;
+  justify-content: space-around;
+}

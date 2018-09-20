@@ -1,0 +1,99 @@
+<div class="container">
+  <span class="cat-title">Редактирование товара</span>
+  <form action="#" (submit)="onSubmit()" class="addForm">
+
+    <label class="label" for="name">Наименование товара:</label>
+    <input type="text" name="name" id="name" [(ngModel)]="addForm.name"  #name="ngModel" required>
+    <p class="error" *ngIf="errors">{{errors.name}}</p>
+
+    <label class="label" for="producer">Производитель:</label>
+    <select name="producer" id="producer" [(ngModel)]="addForm.producer" required>
+      <option *ngFor="let prod of producer" value="{{prod.id}}">{{prod.name}}</option>
+    </select>
+    <p class="error" *ngIf="errors">{{errors.producer}}</p>
+
+    <label class="label" for="category">Категория:</label>
+    <select name="category" id="category" [(ngModel)]="addForm.category" (change)="getAttributes()" required>
+      <option *ngFor="let cat of category" value="{{cat.id}}">{{cat.name}}</option>
+    </select>
+    <p class="error" *ngIf="errors">{{errors.category}}</p>
+
+    <label class="label" for="amount">Количество:</label>
+    <input type="number" name="amount" id="amount"  [(ngModel)]="addForm.amount" min="0" required>
+    <p class="error" *ngIf="errors">{{errors.amount}}</p>
+
+    <label class="label" for="price">Цена:</label>
+    <input type="number" name="price" id="price"  [(ngModel)]="addForm.price" min="0" required>
+    <p class="error" *ngIf="errors">{{errors.price}}</p>
+
+    <label class="label" for="price_old">Старая цена:</label>
+    <input type="number" name="price_old" id="price_old" [(ngModel)]="addForm.price_old" min="0" required>
+    <p class="error" *ngIf="errors">{{errors.price_old}}</p>
+
+    <angular-editor [(ngModel)]="addForm.description" [config]="config" [ngModelOptions]="{standalone: true}"></angular-editor>
+    <p class="error" *ngIf="errors">{{errors.description}}</p>
+
+    <fieldset name="attr">
+      <ul class="attr">
+        <ng-container *ngFor="let attr of attributeArray">
+          <li class="span">{{attr}}
+            <ul>
+              <ng-container *ngFor="let value of valueArray">
+                <ng-container *ngIf="value.name === attr">
+                  <li>
+                    <input class="radio" type="radio" name="{{attr}}" value="{{value.value}}"
+                           [attr.data-attribute-id]="value.Attribute_id" [attr.data-value-id]="value.Value_id">
+                    {{value.value}}
+                  </li>
+                </ng-container>
+              </ng-container>
+              <li><button (click)="onValueAdd(attr);$event.preventDefault()">ADD Value</button></li>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </fieldset>
+    <p class="error" *ngIf="errors">{{errors.attrs}}</p>
+
+    <fieldset name="newvalue" *ngIf="valueAdd">
+      <input type="text" name="newValue" placeholder="новое значение" required>
+      <button (click)="onValueAdding();$event.preventDefault()">OK</button>
+    </fieldset>
+
+    <div class="images">
+      <div class="image_basic">
+        <label class="label" for="image_basic">Базовое изображение:</label>
+        <input type="file" name="image_basic" id="image_basic" (change)="imageBasicChange($event)" required>
+        <div *ngIf="url" class="image_cont" [style.background-image]="url"></div>
+        <p class="error" *ngIf="errors">{{errors.image_basic}}</p>
+      </div>
+
+      <div class="image_gallery">
+        <label class="label" for="image_gallery">Изображения галереи:</label>
+        <input type="file" name="image_gallery[]" id="image_gallery" (change)="imageGalleryChange($event)" multiple required>
+
+        <ng-container *ngFor="let image of oldUrlArray">
+          <div *ngIf="indexExist(image.id)" class="image_cont" [style.background-image]="image.url">
+            <span (click)="oldIndex(image.id)" class="deleteSpan">X</span></div>
+        </ng-container>
+
+        <ng-container *ngIf="urlArray.length > 0">
+          <div *ngFor="let url of urlArray" class="image_cont" [style.background-image]="url"></div>
+        </ng-container>
+
+      </div>
+
+    </div>
+
+    <div class="submit">
+      <input class="btn" type="submit" value="Обновить">
+      <button class="btn" (click)="onClose()">Отмена</button>
+      <app-preloader *ngIf="!request"></app-preloader>
+    </div>
+
+  </form>
+
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+</div>

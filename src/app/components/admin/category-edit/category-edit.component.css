@@ -1,0 +1,47 @@
+
+label{
+  display: block;
+}
+.attr{
+  display: flex;
+  justify-content: space-between;
+}
+.attrspan{
+  position: relative;
+}
+.deleteSpan{
+  position: absolute;
+  right: -30px;
+  top: -2px;
+}
+.images{
+  display: flex;
+  justify-content: space-between;
+}
+.submit{
+  margin-top: 20px;
+}
+
+.image_cont{
+  width: 200px;
+  height: 100px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+input{
+  margin-bottom: 20px;
+}
+.attrspan{
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid black;
+  padding: 0 10px;
+  margin: 10px 0;
+}
+.newAttrs{
+  padding: 20px;
+  margin-top: 10px;
+}
+.submit > *{
+  vertical-align: top;
+}

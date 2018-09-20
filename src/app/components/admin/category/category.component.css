@@ -1,0 +1,24 @@
+.container{
+  min-height: 100%;
+  padding: 10px;
+}
+table{
+  width: 100%;
+}
+.container{
+  position: relative;
+}
+.container{
+  background: #cff4ff;
+}
+.td-buttons{
+  text-align: center;
+}
+
+.prod-preloader{
+  display: inline-block;
+  vertical-align: top;
+}
+.product{
+  position: relative;
+}

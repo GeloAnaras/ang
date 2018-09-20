@@ -1,0 +1,44 @@
+<div class="container">
+  <span class="cat-title">Редактирование производителя</span>
+  <form action="#" (submit)="onSubmit()" class="addForm">
+
+    <label for="name" class="label">Имя:</label>
+    <input type="text" name="name" id="name" [(ngModel)]="addForm.name"  #name="ngModel" required>
+    <p class="error" *ngIf="errors">{{errors.name}}</p>
+
+    <div class="images">
+      <div class="image_basic">
+        <label for="image_basic" class="label">Базовое изображение:</label>
+        <input type="file" name="image_basic" id="image_basic" (change)="imageBasicChange($event)" required>
+        <div *ngIf="url" class="image_cont" [style.background-image]="url"></div>
+        <p class="error" *ngIf="errors">{{errors.image_basic}}</p>
+      </div>
+
+      <div class="image_gallery">
+        <label for="image_gallery" class="label">Изображения галереи:</label>
+        <input type="file" name="image_gallery[]" id="image_gallery" (change)="imageGalleryChange($event)" multiple required>
+
+        <ng-container *ngFor="let image of oldUrlArray">
+          <div *ngIf="indexExist(image.id)" class="image_cont" [style.background-image]="image.url">
+            <span (click)="oldIndex(image.id)" class="deleteSpan">X</span></div>
+        </ng-container>
+
+        <ng-container *ngIf="urlArray.length > 0">
+          <div *ngFor="let url of urlArray" class="image_cont" [style.background-image]="url"></div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="submit">
+      <input type="submit" value="Обновить" class="btn">
+      <button class="btn" (click)="onClose()">Отмена</button>
+      <app-preloader *ngIf="!request"></app-preloader>
+    </div>
+
+  </form>
+
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+
+</div>

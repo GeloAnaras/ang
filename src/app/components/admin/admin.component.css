@@ -1,0 +1,83 @@
+.master{
+  min-height: 100vh;
+}
+header, footer{
+  background: #3f719b;
+  height: 70px;
+}
+footer{
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-left: 40px;
+}
+
+main>.nav{
+  background:#45acc8;
+  height: 100%;
+
+}
+main>.nav a{
+
+  font-weight: bold;
+}
+main>.nav li:hover a{
+  color: white;
+}
+main>.nav {
+
+  color: white;
+  font-weight: bold;
+}
+.content{
+  width: 100%;
+  background-color: #cff4ff;
+}
+li>ul{
+  margin-left: 20px;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.test{
+
+}
+.logo p{
+
+}
+footer{
+
+}
+.auth> span{
+  margin-right: 20px;
+
+}
+.nav li{
+  padding: 10px;
+
+}
+.nav>ul>li:hover{
+  background: #3f719b;
+}
+main{
+  display: table;
+  padding-bottom: 70px;
+  height: 10px;
+  min-height: calc(100vh - 70px);
+}
+.logo p{
+  font-family: 'Montserrat', sans-serif;
+}
+span>span{
+  font-family: 'Montserrat', sans-serif;
+}
+.nav, .content{
+  display: table-cell;
+}
+

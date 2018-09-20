@@ -1,0 +1,13 @@
+<div class="container">
+  <form action="#">
+    <input type="email" name="email" placeholder="email" [(ngModel)]="formData.email">
+    <p *ngIf="this.authErrors.email">{{ this.authErrors.email}}</p>
+
+    <input type="password" name="password" placeholder="password" [(ngModel)]="formData.password">
+    <p *ngIf="this.authErrors.password">{{ this.authErrors.password}}</p>
+
+    <p *ngIf="this.authErrors.error">{{ this.authErrors.error}}</p>
+    <input type="submit" value="Войти" (click)="onLogin()">
+  </form>
+</div>
+

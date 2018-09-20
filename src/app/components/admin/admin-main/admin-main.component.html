@@ -1,0 +1,17 @@
+<div class="container">
+  <p class="cat-title">Поиск</p>
+  <form action="#"class="addForm">
+    <input type="text" name="name" id="name" >
+
+    <select name="group" (change)="getSearchType(event.target.value)">
+      <ng-container *ngFor="let item of data">
+        <option value="{{item}}">{{item}}</option>
+      </ng-container>
+    </select>
+
+  </form>
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+
+</div>

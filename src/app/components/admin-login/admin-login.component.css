@@ -1,0 +1,20 @@
+label, input{
+  display: block;
+  margin-top: 10px;
+  padding: 10px 25px;
+}
+.container{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #3f719b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container p{
+  background: red;
+  color: white;
+}

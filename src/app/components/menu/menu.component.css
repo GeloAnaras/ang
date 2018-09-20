@@ -1,0 +1,43 @@
+
+.container{
+  width: 25%;
+  position: relative;
+  border: 1px solid black;
+  border-top: 0;
+  display: inline-block;
+}
+.container>li:not(:last-child), .menu2>li:not(:last-child){
+  border-bottom: 1px solid black;
+}
+.container a{
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+  color: black;
+}
+
+.menu2, .menu3, .menu4, .menu5{
+  position: absolute;
+  z-index: 500;
+  left: 98%;
+  top: -1px;
+  color: black;
+  bottom: 0;
+  margin-bottom: -1px;
+  border: 1px solid black;
+  white-space: nowrap;
+  background-color: white;
+  display: none;
+}
+.container>li:hover, .menu2>li:hover, .menu3>li:hover, .menu4>li:hover, .menu5>li:hover{
+  background-color: #3f719b;
+  color: white;
+  cursor: pointer;
+}
+.container>li:hover .menu2, .menu2>li:hover .menu3, .menu3>li:hover .menu4, .menu5>li:hover .menu5{
+  display: block;
+}
+
+.menu2>li, .menu3>li, .menu4>li, .menu5>li{
+  border-bottom: 1px solid black;
+}

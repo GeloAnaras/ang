@@ -1,0 +1,33 @@
+<div class="master">
+  <header>
+    <div class="logo">
+      <p>Панель администрирования</p>
+    </div>
+    <div class="auth">
+      <span *ngIf="user">Здравствуй <span>{{user.name}}</span></span>
+      <button class="btn" (click)="onLogout()">Выйти</button>
+    </div>
+  </header>
+  <main>
+    <div class="nav">
+      <ul>
+        <li><a href="#" routerLink="main">Главная</a></li>
+        <li><a href="#" routerLink="users">Пользователи</a></li>
+        <li><a href="#" routerLink="category">Категории</a></li>
+        <li><a href="#" routerLink="producer">Производители</a></li>
+        <li><a href="#" [routerLink]="['attribute']">Аттрибуты</a></li>
+        <li><a href="#" routerLink="attribute/groups">Группы аттрибутов</a></li>
+        <li><a href="#" [routerLink]="['product']">Товары</a></li>
+        <li><a href="#" [routerLink]="['orders']">Заказы</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+  <footer>
+    <p>Copyright © 2018-2018 Gelo First Project. All rights reserved.</p>
+  </footer>
+</div>
+
+

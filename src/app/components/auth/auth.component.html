@@ -1,0 +1,63 @@
+<div class="container" (click)="closeWindow()">
+  <div class="form" (click)="$event.stopPropagation()">
+    <div class="nav">
+      <button (click)="currentForm = 'login'">Вход</button>
+      <button (click)="currentForm = 'register'">Регистрация</button>
+      <button (click)="currentForm = 'recovery'">Забыли пароль?</button>
+      <button (click)="closeWindow()">X</button>
+    </div>
+    <form action="#" name="login" *ngIf="currentForm === 'login'">
+      <label for="email_login">Электронная почта</label>
+      <input type="email" name="email" id="email_login" [(ngModel)]="formData.email">
+      <p *ngIf="this.authErrors.email">{{ this.authErrors.email}}</p>
+
+      <label for="password_login">Пароль</label>
+      <input type="password" name="password" id="password_login" [(ngModel)]="formData.password">
+      <p *ngIf="this.authErrors.password">{{ this.authErrors.password}}</p>
+
+      <p *ngIf="this.authErrors.error">{{ this.authErrors.error}}</p>
+
+      <input type="submit" value="Войти" (click)="onLogin()">
+    </form>
+
+    <form action="#" name="register" *ngIf="currentForm === 'register'">
+      <label for="surname_register">Фамилия</label>
+      <input type="text" name="surname" id="surname_register" [(ngModel)]="formData.surname">
+      <p *ngIf="this.authErrors.surname">{{ this.authErrors.surname}}</p>
+
+      <label for="name_register">Имя</label>
+      <input type="text" name="name" id="name_register" [(ngModel)]="formData.name">
+      <p *ngIf="this.authErrors.name">{{ this.authErrors.name}}</p>
+
+      <label for="secondname_register">Отчество</label>
+      <input type="text" name="secondname" id="secondname_register" [(ngModel)]="formData.secondname">
+      <p *ngIf="this.authErrors.secondname">{{ this.authErrors.secondname}}</p>
+
+      <label for="phone_register">Телефон</label>
+      <input type="text" name="phone" id="phone_register" [(ngModel)]="formData.phone">
+      <p *ngIf="this.authErrors.phone">{{ this.authErrors.phone}}</p>
+
+      <label for="email_register">Электронная почта</label>
+      <input type="email" name="email" id="email_register" [(ngModel)]="formData.email">
+      <p *ngIf="this.authErrors.email">{{ this.authErrors.email}}</p>
+
+      <label for="password_register">Пароль</label>
+      <input type="password" name="password" id="password_register" [(ngModel)]="formData.password">
+      <p *ngIf="this.authErrors.password">{{ this.authErrors.password}}</p>
+
+      <label for="password_confirmation_register">Повторите пароль</label>
+      <input type="password" name="password_confirmation" id="password_confirmation_register"
+             [(ngModel)]="formData.password_confirmation">
+      <p *ngIf="this.authErrors.password_confirmation">{{ this.authErrors.password_confirmation}}</p>
+
+      <input type="submit" value="Войти" (click)="onRegister()">
+    </form>
+
+    <form action="#" name="password_recovery" *ngIf="currentForm === 'recovery'">
+      <span>Для восстановления пароля введите свой e-mail, который вы указали при регистрации</span>
+      <label for="email_password_recovery">Электронная почта</label>
+      <input type="email" name="email" id="email_password_recovery" [(ngModel)]="formData.email">
+      <input type="submit" value="Восстановить">
+    </form>
+  </div>
+</div>

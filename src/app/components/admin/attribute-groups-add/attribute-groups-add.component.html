@@ -1,0 +1,20 @@
+<div class="container">
+  <p class="cat-title">Добавление группы аттрибутов</p>
+  <form action="#" (submit)="onSubmit()" class="addForm">
+
+    <label for="name" class="label">Имя:</label>
+    <input type="text" name="name" id="name" [(ngModel)]="addForm.name"  required >
+    <p class="error" *ngIf="errors">{{errors.name}}</p>
+
+    <div class="submit">
+      <input type="submit" value="Добавить" class="btn">
+      <button  class="btn" (click)="onClose()">Отмена</button>
+      <app-preloader *ngIf="!request"></app-preloader>
+    </div>
+
+  </form>
+
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+</div>

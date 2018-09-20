@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="product" *ngIf="!addMode && !editMode">
+    <div class="title">
+      <button class="btn" (click)="addMode ? addMode = false : addMode = true">Добавить</button>
+      <span class="cat-title">Пользователи</span>
+      <app-preloader class="prod-preloader" *ngIf="!request"></app-preloader>
+    </div>
+
+    <table border="1px solid black">
+      <tr>
+        <th *ngFor="let order of colums">
+          <a href="#" class="th-order"
+             [routerLink]="[{order: order.name,
+             direction: params.direction === 'ASC' ? 'DESC' : 'ASC',
+             page: params.page}]" >{{order.value}}
+            <ng-container *ngIf="params.order === order.name">
+              <span *ngIf="params.direction === 'ASC'">▲</span>
+              <span *ngIf="params.direction === 'DESC'">▼</span>
+            </ng-container>
+          </a>
+        </th>
+        <th>действие</th>
+      </tr>
+      <ng-container *ngFor="let user of usersArray">
+        <tr>
+          <td>{{user.id}}</td>
+          <td>{{user.surname}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.secondname}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.email}}</td>
+          <td class="td-buttons">
+            <button class="btn" (click)="editMode ? editMode = false : editMode = user.id">E</button>
+            <button class="btn" (click)="onDelete(user.id)">X</button>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+
+    <app-paginator class="prod-paginator" *ngIf="paginationData" [data]="paginationData"></app-paginator>
+  </div>
+
+  <app-user-add *ngIf="addMode"  (adding)="updateUsers();addMode = false"></app-user-add>
+  <app-user-edit *ngIf="editMode" [userId]="editMode"  (editing)="updateUsers();editMode = false"></app-user-edit>
+
+  <div class="error" *ngIf="errors">
+    <p>{{errors.error}}</p>
+  </div>
+</div>

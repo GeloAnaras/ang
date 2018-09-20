@@ -1,0 +1,54 @@
+<div class="container" *ngIf="product">
+  <h1 >{{product.name}}</h1>
+  <div class="nav">
+    <ul>
+      <a simplePageScroll href="#description"><li>Описание ▼</li></a>
+      <a simplePageScroll href="#characteristics"><li>Характеристики ▼</li></a>
+      <a simplePageScroll href="#reviews"><li>Отзывы ▼</li></a>
+    </ul>
+    <div>
+      <span>Код товара: <span>{{product.id}}</span></span>
+      <div class="raiting"></div>
+    </div>
+  </div>
+  <div class="blocks">
+    <div class="visual">
+      <app-slider *ngIf="product" [data]="slides"></app-slider>
+    </div>
+    <div class="interaction">
+      <p>Есть в наличии</p>
+      <div class="price">
+        <span><span>{{product.price}}</span>грн</span>
+        <button (click)="test(product)">Купить</button>
+      </div>
+      <div class="compare">
+        <button>Compare</button>
+        <span>К сравнению</span>
+      </div>
+      <div class="delivery">
+        <p>Блок доставки</p>
+      </div>
+    </div>
+  </div>
+  <h2 id="characteristics">Характеристики <span>ОЗУ Kingston DDR3 4GB (2x2GB) 1600MHz HyperX FURY (KHX1600C9D3K2/4G)</span></h2>
+  <table *ngIf="attributes" class="attributes">
+    <tr *ngFor="let attr of attributes">
+      <td>{{attr.name}}</td>
+      <ng-container *ngFor="let value of product['attributes'];let i = index">
+        <td *ngIf="value.id === attr.id" class="value">
+          <ng-container *ngIf="product['values'][i].value === 'true'">
+            есть
+          </ng-container>
+          <ng-container *ngIf="product['values'][i].value !== 'true'">
+            {{product['values'][i].value}}
+          </ng-container>
+        </td>
+      </ng-container>
+      <td class="no">нет</td>
+    </tr>
+  </table>
+  <h2 id="description">Описание <span>ОЗУ Kingston DDR3 4GB (2x2GB) 1600MHz HyperX FURY (KHX1600C9D3K2/4G)</span></h2>
+  <div *ngIf="product" class="description" [innerHTML]="product.description.text"></div>
+  <h2 id="reviews">Отзывы <span>ОЗУ Kingston DDR3 4GB (2x2GB) 1600MHz HyperX FURY (KHX1600C9D3K2/4G)</span></h2>
+</div>
+
